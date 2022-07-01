@@ -1,0 +1,17 @@
+/* ******************** RESPONSIVE ***************** */
+$breakpoints: (
+  tablette: 700px,
+  desktop: 1000px,
+);
+
+@mixin tablette {
+  @media (min-width: map-get($breakpoints, tablette)) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media (min-width: map-get($breakpoints, desktop)) {
+    @content;
+  }
+}

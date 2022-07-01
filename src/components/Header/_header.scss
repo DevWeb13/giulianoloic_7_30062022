@@ -1,0 +1,14 @@
+header {
+  height: $headerHeight;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  .logo {
+    width: 12.5rem;
+    height: 4.6875rem;
+    @include tablette {
+      width: 16.75rem;
+      height: 5.8125rem;
+    }
+  }
+}

@@ -1,1 +1,4 @@
-@import './settings';
+@import 'variables';
+@import 'mixins';
+@import 'settings';
+@import 'components/Header/header';
