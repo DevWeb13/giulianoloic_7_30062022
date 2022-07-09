@@ -1,4 +1,5 @@
 @import 'variables';
 @import 'mixins';
 @import 'settings';
-@import 'components/Header/header';
+@import '../components/Header/header';
+@import '../components/Search/search';

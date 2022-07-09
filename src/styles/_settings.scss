@@ -12,6 +12,9 @@ body {
 }
 
 #root {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
   width: 100%;
   max-width: 90rem;
   @include tablette {
@@ -21,4 +24,12 @@ body {
 
 button {
   cursor: pointer;
+}
+
+input {
+  outline: none;
+  font-size: 1rem;
+  @include tablette {
+    font-size: 1.125rem;
+  }
 }
