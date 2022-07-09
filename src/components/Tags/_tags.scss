@@ -1,0 +1,49 @@
+.tagsContainer {
+  margin-top: 0.625rem;
+  display: flex;
+  flex-wrap: wrap;
+  width: calc(86% + $marginTag);
+  @include tablette {
+    margin-top: 0.9375rem;
+    width: calc(86% + $marginTagTablette * 2);
+  }
+  .tag {
+    padding: 0 15px;
+    margin: $marginTag;
+    height: 25px;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    background-color: $secondaryColor;
+    color: white;
+    border-radius: 5px;
+    @include tablette {
+      height: 37px;
+      padding: 0 20px;
+      margin: $marginTagTablette;
+    }
+  }
+  .tagText {
+    font-size: 0.75rem;
+    font-weight: bold;
+    margin-right: 20px;
+    @include tablette {
+      font-size: 0.875rem;
+    }
+  }
+  .tagClose {
+    font-size: 0.625rem;
+    background-color: $secondaryColor;
+    border-radius: 50%;
+    border: 2px solid white;
+    color: white;
+    width: 1rem;
+    height: 1rem;
+    font-weight: bold;
+    @include tablette {
+      width: 1.25rem;
+      height: 1.25rem;
+      font-size: 0.75rem;
+    }
+  }
+}
