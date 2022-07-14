@@ -2,40 +2,48 @@
   margin-top: 0.625rem;
   display: flex;
   flex-wrap: wrap;
-  width: calc(86% + $marginTag);
+  width: calc(100% + $margin);
   @include tablette {
     margin-top: 0.9375rem;
-    width: calc(86% + $marginTagTablette * 2);
+    width: calc(100% + $marginDesktop * 2);
   }
   .tag {
     padding: 0 15px;
-    margin: $marginTag;
-    height: 25px;
+    margin: $margin;
+    height: 1.5625rem;
     display: flex;
     align-items: center;
     justify-content: space-around;
-    background-color: $secondaryColor;
     color: white;
     border-radius: 5px;
     @include tablette {
       height: 37px;
       padding: 0 20px;
-      margin: $marginTagTablette;
+      margin: $marginDesktop;
     }
+  }
+  .ingredients {
+    background-color: $secondaryColor;
+  }
+  .appareils {
+    background-color: $tertiaryColor;
+  }
+  .ustensils {
+    background-color: $quaternaryColor;
   }
   .tagText {
     font-size: 0.75rem;
     font-weight: bold;
-    margin-right: 20px;
+    margin-right: 1.25rem;
     @include tablette {
       font-size: 0.875rem;
     }
   }
   .tagClose {
     font-size: 0.625rem;
-    background-color: $secondaryColor;
+    // background-color: $secondaryColor;
     border-radius: 50%;
-    border: 2px solid white;
+    border: 0.125rem solid white;
     color: white;
     width: 1rem;
     height: 1rem;

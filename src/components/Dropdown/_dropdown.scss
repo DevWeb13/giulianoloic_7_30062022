@@ -1,0 +1,145 @@
+.dropdownContainer {
+  position: relative;
+  .dropdownButton {
+    min-width: 10.625rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-radius: 0.3125rem;
+    font-size: 1.125rem;
+    font-weight: bold;
+    color: white;
+    border: none;
+    margin: $margin;
+    height: $dropDownButtonHeight;
+    @include desktop {
+      margin: $marginDesktop;
+      height: $dropdownButtonHeightDesktop;
+    }
+    .dropdownLabel {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex: 1;
+      height: 100%;
+      font-size: 1rem;
+      @include desktop {
+        font-size: 1.25rem;
+      }
+      cursor: pointer;
+    }
+    .dropdownInput {
+      height: 100%;
+      flex: 1;
+      color: white;
+      padding-left: 4%;
+      max-width: 75%;
+      text-overflow: ellipsis;
+
+      @include desktop {
+        max-width: none;
+      }
+    }
+    .dropdownInput::placeholder {
+      color: white;
+      text-overflow: ellipsis;
+      font-size: 0.9375rem;
+      @include desktop {
+        font-size: 1.125rem;
+      }
+    }
+    .iconContainer {
+      display: flex;
+      width: $iconContainerWidth;
+      height: 100%;
+      align-items: center;
+      justify-content: center;
+      background-color: transparent;
+      color: white;
+      font-size: 1.25rem;
+      border: none;
+    }
+  }
+
+  .dropdownList {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 13.875rem;
+    position: absolute;
+    top: 0.3125rem;
+    left: 11.4375rem;
+    border-radius: 0 0.3125rem 0.3125rem 0.3125rem;
+    z-index: 1;
+    color: white;
+    overflow-y: auto;
+    max-height: 50vh;
+    @include tablette {
+      max-width: 27.75rem;
+      left: 14.1875rem;
+    }
+    @include desktop {
+      left: 0.625rem;
+      top: calc($dropdownButtonHeightDesktop + $marginDesktop);
+      border-radius: 0 0 0.3125rem 0.3125rem;
+    }
+    @include large {
+      max-width: 41.625rem;
+    }
+    .dropdownListItem {
+      display: flex;
+      align-items: center;
+      padding: 5px 10px;
+      width: 12.75rem;
+      height: 2.05rem;
+      overflow: hidden;
+      cursor: pointer;
+      text-overflow: ellipsis;
+
+      &:last-child {
+        border-bottom: none;
+      }
+    }
+  }
+}
+/* ****************** Open Dropdown ****************** */
+.dropdownContainer {
+  overflow-x: clip;
+  .dropdownButtonOpen {
+    border-radius: 0.325rem 0 0 0.325rem;
+    width: 11.25rem;
+    @include tablette {
+      width: 13.875rem;
+    }
+    @include desktop {
+      border-radius: 0.3125rem 0.3125rem 0 0;
+      width: 27.75rem;
+    }
+    @include large {
+      width: 41.625rem;
+    }
+    .dropdownLabel {
+      display: none;
+    }
+  }
+}
+
+.ingredients {
+  background-color: $secondaryColor;
+  .dropdownListItem:hover {
+    background-color: darken($secondaryColor, $amount: 10);
+  }
+}
+
+.appareils {
+  background-color: $tertiaryColor;
+  .dropdownListItem:hover {
+    background-color: darken($tertiaryColor, $amount: 10);
+  }
+}
+
+.ustensiles {
+  background-color: $quaternaryColor;
+  .dropdownListItem:hover {
+    background-color: darken($quaternaryColor, $amount: 10);
+  }
+}

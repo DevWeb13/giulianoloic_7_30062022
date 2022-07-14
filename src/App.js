@@ -1,21 +1,21 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import Tags from './components/Tags/Tags';
+import Dropdowns from './components/Dropdowns/Dropdowns';
+import recipes from './data/recipes';
 
 function App() {
-  const [searchValue, setSearchValue] = React.useState('');
-  const [tags, setTags] = React.useState([
-    'Coco',
-    'Panda',
-    'Tiger',
-    'fffffffffffffffffffffffffffff',
-  ]);
+  const [recipesList, setRecipesList] = useState(recipes);
+  const [searchValueArray, setSearchValueArray] = useState([]);
+  const [tags, setTags] = useState([]);
+
   return (
     <>
       <Header />
-      <Search searchValue={searchValue} setSearchValue={setSearchValue} />
+      <Search setSearchValueArray={setSearchValueArray} />
       <Tags tags={tags} setTags={setTags} />
+      <Dropdowns recipesList={recipesList} tags={tags} setTags={setTags} />
     </>
   );
 }

@@ -1,0 +1,11 @@
+.dropdowns {
+  display: flex;
+  flex-direction: column;
+  width: calc(100% + $margin * 2);
+  @include desktop {
+    flex-direction: row;
+    flex-wrap: wrap;
+    width: calc(100% + $marginDesktop * 2);
+    height: 4.9375rem;
+  }
+}
