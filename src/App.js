@@ -3,6 +3,7 @@ import Header from './components/Header/Header';
 import Search from './components/Search/Search';
 import Tags from './components/Tags/Tags';
 import Dropdowns from './components/Dropdowns/Dropdowns';
+import Cards from './components/Cards/Cards';
 import recipes from './data/recipes';
 
 function App() {
@@ -16,6 +17,7 @@ function App() {
       <Search setSearchValueArray={setSearchValueArray} />
       <Tags tags={tags} setTags={setTags} />
       <Dropdowns recipesList={recipesList} tags={tags} setTags={setTags} />
+      <Cards recipesList={recipesList} />
     </>
   );
 }

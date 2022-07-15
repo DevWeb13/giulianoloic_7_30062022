@@ -1,0 +1,23 @@
+.card {
+  display: flex;
+  flex-direction: column;
+  border-radius: 0.3125rem;
+  overflow: hidden;
+  margin: $margin;
+  .imgContainer {
+    display: flex;
+    align-items: center;
+    height: 11.125rem;
+    background-color: $quinaryColor;
+    padding: 0.625rem;
+  }
+  .cardContent {
+    padding: 1.25rem 0.625rem;
+    background-color: $primaryColor;
+    .cardContentNameAndTime {
+      .cardContentName {
+        font-size: 1.125rem;
+      }
+    }
+  }
+}
