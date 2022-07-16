@@ -10,10 +10,12 @@
     font-weight: bold;
     color: white;
     border: none;
-    margin: $margin;
+    width: 100%;
     height: $dropDownButtonHeight;
+    @include tablette {
+      width: auto;
+    }
     @include desktop {
-      margin: $marginDesktop;
       height: $dropdownButtonHeightDesktop;
     }
     .dropdownLabel {
@@ -60,36 +62,37 @@
       border: none;
     }
   }
-
   .dropdownList {
     display: flex;
     flex-wrap: wrap;
-    max-width: 13.875rem;
-    position: absolute;
-    top: 0.3125rem;
-    left: 11.4375rem;
+    position: relative;
+    bottom: 5px;
+
     border-radius: 0 0.3125rem 0.3125rem 0.3125rem;
     z-index: 1;
     color: white;
     overflow-y: auto;
     max-height: 50vh;
     @include tablette {
+      position: absolute;
       max-width: 27.75rem;
-      left: 14.1875rem;
+      top: 0px;
+      left: 13.875rem;
+      bottom: auto;
     }
     @include desktop {
-      left: 0.625rem;
-      top: calc($dropdownButtonHeightDesktop + $marginDesktop);
-      border-radius: 0 0 0.3125rem 0.3125rem;
+      left: 0;
+      top: $dropdownButtonHeightDesktop;
+      border-radius: 0 0.3125rem;
     }
     @include large {
-      max-width: 41.625rem;
+      min-width: 41.625rem;
     }
     .dropdownListItem {
       display: flex;
       align-items: center;
       padding: 5px 10px;
-      width: 12.75rem;
+      width: 195px;
       height: 2.05rem;
       overflow: hidden;
       cursor: pointer;
@@ -98,6 +101,9 @@
       &:last-child {
         border-bottom: none;
       }
+      @include tablette {
+        width: 12.75rem;
+      }
     }
   }
 }
@@ -105,10 +111,11 @@
 .dropdownContainer {
   overflow-x: clip;
   .dropdownButtonOpen {
-    border-radius: 0.325rem 0 0 0.325rem;
-    width: 11.25rem;
+    border-radius: 0.325rem;
+    width: 100%;
     @include tablette {
       width: 13.875rem;
+      border-radius: 0.325rem 0 0 0.325rem;
     }
     @include desktop {
       border-radius: 0.3125rem 0.3125rem 0 0;

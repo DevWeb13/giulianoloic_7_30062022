@@ -1,5 +1,14 @@
 .cardsContainer {
   display: flex;
   flex-direction: column;
-  width: calc(100% + $margin);
+  align-items: center;
+  row-gap: 0.9375rem;
+  width: 100%;
+  padding-top: 1.0938rem;
+  @include tablette {
+    flex-direction: row;
+    flex-wrap: wrap;
+    gap: 3.0625rem;
+    justify-content: space-around;
+  }
 }

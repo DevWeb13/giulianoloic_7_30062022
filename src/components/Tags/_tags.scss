@@ -1,15 +1,16 @@
 .tagsContainer {
-  margin-top: 0.625rem;
   display: flex;
   flex-wrap: wrap;
-  width: calc(100% + $margin);
-  @include tablette {
-    margin-top: 0.9375rem;
-    width: calc(100% + $marginDesktop * 2);
+  align-items: center;
+  padding: 7.5px 0;
+  gap: 0.3125rem 0.625rem;
+  width: 100%;
+  @include desktop {
+    margin-top: 1.0938rem;
+    gap: 0.625rem 1.25rem;
   }
   .tag {
     padding: 0 15px;
-    margin: $margin;
     height: 1.5625rem;
     display: flex;
     align-items: center;
@@ -19,7 +20,6 @@
     @include tablette {
       height: 37px;
       padding: 0 20px;
-      margin: $marginDesktop;
     }
   }
   .ingredients {
@@ -41,7 +41,6 @@
   }
   .tagClose {
     font-size: 0.625rem;
-    // background-color: $secondaryColor;
     border-radius: 50%;
     border: 0.125rem solid white;
     color: white;

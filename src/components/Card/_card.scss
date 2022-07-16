@@ -3,20 +3,77 @@
   flex-direction: column;
   border-radius: 0.3125rem;
   overflow: hidden;
-  margin: $margin;
+  max-width: 380px;
+  @include tablette {
+    width: 380px;
+    max-height: 364px;
+    height: 364px;
+    min-height: 364px;
+  }
   .imgContainer {
     display: flex;
     align-items: center;
+    justify-content: center;
     height: 11.125rem;
+    min-height: 11.125rem;
     background-color: $quinaryColor;
     padding: 0.625rem;
   }
   .cardContent {
     padding: 1.25rem 0.625rem;
     background-color: $primaryColor;
+    display: flex;
+    flex-direction: column;
+    row-gap: 0.625rem;
+    @include tablette {
+      flex: 1;
+
+      padding: 1.25rem;
+      row-gap: 1.25rem;
+    }
     .cardContentNameAndTime {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.625rem;
+      @include tablette {
+        flex-direction: row;
+        justify-content: space-between;
+      }
       .cardContentName {
         font-size: 1.125rem;
+      }
+      .cardContentTime {
+        display: flex;
+        align-items: center;
+        column-gap: 0.4375rem;
+        font-size: 18px;
+        font-weight: bold;
+      }
+    }
+    .cardContentIngredientsAndRecipe {
+      display: flex;
+      flex-direction: column;
+      row-gap: 0.625rem;
+      font-size: 12px;
+      @include tablette {
+        flex-direction: row;
+        justify-content: space-between;
+      }
+      .cardContentIngredients {
+        flex: 1;
+        .cardContentIngredient {
+          font-weight: bold;
+        }
+      }
+      .cardContentRecipe {
+        flex: 1;
+
+        @include tablette {
+          overflow: hidden;
+          text-overflow: ellipsis;
+          max-height: 110px;
+          display: block;
+        }
       }
     }
   }

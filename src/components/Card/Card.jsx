@@ -2,20 +2,20 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
-import displayIngredients from '../../utils/cardsManager';
+import displayQuantityAndUnit from '../../utils/cardsManager';
 
 function Card({ recipe }) {
   return (
     <article className="card">
       <div className="imgContainer">
-        <img src="../assets/logo.svg" alt={recipe.name} />
+        <img src="../assets/logo.svg" alt={recipe.name} className="logo" />
       </div>
       <div className="cardContent">
         <div className="cardContentNameAndTime">
           <h3 className="cardContentName">{recipe.name}</h3>
           <div className="cardContentTime">
             <FontAwesomeIcon icon={faClock} className="faClock" />
-            <p className="cardContentTime">{`${recipe.time} min`}</p>
+            <p className="cardContentTimeText">{`${recipe.time} min`}</p>
           </div>
         </div>
         <div className="cardContentIngredientsAndRecipe">
@@ -23,7 +23,8 @@ function Card({ recipe }) {
             {recipe.ingredients.map((ingredient, index) => (
               // eslint-disable-next-line react/no-array-index-key
               <li key={`${ingredient} ${index}`}>
-                {displayIngredients(ingredient)}
+                <span className="cardContentIngredient">{`${ingredient.ingredient}:`}</span>
+                {displayQuantityAndUnit(ingredient)}
               </li>
             ))}
           </ul>
