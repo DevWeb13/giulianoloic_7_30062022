@@ -43,7 +43,7 @@ function Dropdown({ list, categorie, isOpen, setIsOpen, tags, setTags }) {
               type="text"
               name={categorie}
               id={categorie}
-              value={isOpen ? inputValue : categorie}
+              value={inputValue}
               onChange={(e) => setInputValue(e.target.value)}
               readOnly={!isOpen}
               placeholder={`Rechercher un ${categorie}`}
