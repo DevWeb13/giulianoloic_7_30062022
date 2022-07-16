@@ -82,7 +82,7 @@
     }
     @include desktop {
       left: 0;
-      top: $dropdownButtonHeightDesktop;
+      top: 67px;
       border-radius: 0 0.3125rem;
     }
     @include large {
