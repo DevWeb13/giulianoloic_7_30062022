@@ -53,9 +53,7 @@ function getCategoriesList(data, category, tags, search) {
   // Remove tags from the list
   const filteredList = categorielist.filter((item) => !tagsList.includes(item));
   // Filter the list by search
-  const filteredSearchList = categorieListfilterBySearch(filteredList, search);
-
-  return filteredSearchList;
+  return categorieListfilterBySearch(filteredList, search);
 }
 
 /**

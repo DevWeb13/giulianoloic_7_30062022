@@ -2,7 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faSearch } from '@fortawesome/free-solid-svg-icons';
-// import filteredList from '../../utils/dataManager';
 
 /**
  * It's a React component that renders a search input and a search icon

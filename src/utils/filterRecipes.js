@@ -27,7 +27,7 @@ function filterByTags(recipes, tags) {
 }
 
 function filterBySearch(recipes, search) {
-  let filteredRecipes = recipes;
+  let filteredRecipes = [];
   if (search.length < 3) {
     filteredRecipes = recipes;
   } else {
@@ -55,6 +55,5 @@ function filterBySearch(recipes, search) {
  */
 export default function filterRecipes(recipes, search, tags) {
   const searchFilteredRecipes = filterBySearch(recipes, search);
-  const tagsFilteredRecipes = filterByTags(searchFilteredRecipes, tags);
-  return tagsFilteredRecipes;
+  return filterByTags(searchFilteredRecipes, tags);
 }

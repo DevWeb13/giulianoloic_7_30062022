@@ -2,7 +2,7 @@ import React from 'react';
 import propTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
-import displayQuantityAndUnit from '../../utils/cardsManager';
+import displayIngredients from '../../utils/displayIngredients';
 
 function Card({ recipe }) {
   return (
@@ -24,7 +24,7 @@ function Card({ recipe }) {
               // eslint-disable-next-line react/no-array-index-key
               <li key={`${ingredient} ${index}`}>
                 <span className="cardContentIngredient">{`${ingredient.ingredient}:`}</span>
-                {displayQuantityAndUnit(ingredient)}
+                {displayIngredients(ingredient)}
               </li>
             ))}
           </ul>

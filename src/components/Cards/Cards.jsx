@@ -2,9 +2,6 @@ import React from 'react';
 import propTypes from 'prop-types';
 import Card from '../Card/Card';
 
-/* A React component that takes in an array of recipes and maps over them to create a card for each
-recipe. */
-
 /**
  * 
  * @param {object} props - the props of the component

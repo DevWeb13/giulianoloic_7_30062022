@@ -5,7 +5,7 @@ import Tags from './components/Tags/Tags';
 import Dropdowns from './components/Dropdowns/Dropdowns';
 import Cards from './components/Cards/Cards';
 import recipes from './data/recipes';
-import filterRecipes from './utils/dataManager';
+import filterRecipes from './utils/filterRecipes';
 
 function App() {
   const [recipesList] = useState(recipes);
