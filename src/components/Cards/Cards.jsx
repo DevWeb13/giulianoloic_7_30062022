@@ -2,10 +2,20 @@ import React from 'react';
 import propTypes from 'prop-types';
 import Card from '../Card/Card';
 
-function Cards({ recipesList }) {
+/* A React component that takes in an array of recipes and maps over them to create a card for each
+recipe. */
+
+/**
+ * 
+ * @param {object} props - the props of the component
+ * @param {array} props.filterRecipes - the filter list of recipes
+ * @returns A React component that takes in an array of recipes and maps over them to create a card for each
+recipe.
+ */
+function Cards({ filterRecipes }) {
   return (
     <section className="cardsContainer">
-      {recipesList.map((recipe) => (
+      {filterRecipes.map((recipe) => (
         <Card key={recipe.id} recipe={recipe} />
       ))}
     </section>
@@ -13,7 +23,7 @@ function Cards({ recipesList }) {
 }
 
 Cards.propTypes = {
-  recipesList: propTypes.arrayOf(
+  filterRecipes: propTypes.arrayOf(
     propTypes.exact({
       id: propTypes.number.isRequired,
       name: propTypes.string.isRequired,

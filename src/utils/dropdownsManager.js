@@ -1,10 +1,26 @@
 /**
- * Get the list of each dropdown
+ * [categorieListfilterBySearch description]
+ *
+ * @param   {array}  list    Category list
+ * @param   {string}  search  Search input value
+ *
+ * @return  {array}         An array filter by search
+ */
+function categorieListfilterBySearch(list, search) {
+  if (search.length < 3) {
+    return list;
+  }
+  return list.filter((item) => item.includes(search));
+}
+
+/**
+ * [createCategorieList description]
+ *
  * @param   {array}  data       - The list of recipes
  * @param   {string}  category  - The category of the dropdown
- * @return  {array}             - The list of the dropdown
+ * @return  {array}            - The list of the dropdown sorted alphabetically
  */
-function getCategoriesList(data, category) {
+function createCategorieList(data, category) {
   const list = [];
   data.forEach((recipe) => {
     if (category === 'ingredients') {
@@ -19,7 +35,27 @@ function getCategoriesList(data, category) {
       });
     }
   });
-  return [...new Set(list)];
+  return [...new Set(list)].sort();
+}
+
+/**
+ * Get the list of each dropdown
+ * @param   {array}  data       - The list of recipes
+ * @param   {string}  category  - The category of the dropdown
+ * @param   {array}   tags      - The list of tags
+ * @param   {string}  search    - The search input value
+ * @return  {array}             - The list of the dropdown
+ */
+function getCategoriesList(data, category, tags, search) {
+  // Get the list of each dropdown
+  const categorielist = createCategorieList(data, category);
+  const tagsList = tags.map((tag) => tag[1].toLowerCase());
+  // Remove tags from the list
+  const filteredList = categorielist.filter((item) => !tagsList.includes(item));
+  // Filter the list by search
+  const filteredSearchList = categorieListfilterBySearch(filteredList, search);
+
+  return filteredSearchList;
 }
 
 /**

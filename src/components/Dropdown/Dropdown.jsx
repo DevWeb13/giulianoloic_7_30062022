@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import propTypes from 'prop-types';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
@@ -11,19 +11,33 @@ import { openCloseDropdowns, addUpperCase } from '../../utils/dropdownsManager';
  * @param {string} props.categorie - the name of the category
  * @param {object} props.isOpen - the state of the dropdown
  * @param {function} props.setIsOpen - Function to set the state of the dropdown
- * @param {array} props.tags - the list of tags
+ * @param {Array} props.tags - the list of tags
+ * @param {function} props.setTags - Function to set the list of tags
+ * @param {string} props.inputValue - the value of the input
+ * @param {function} props.setInputValue - Function to set the value of the input
  * @param {function} props.setTags - Function to set the list of tags
  * @return A dropdown with a list of items and a button to open/close it
  */
-function Dropdown({ list, categorie, isOpen, setIsOpen, tags, setTags }) {
-  const [inputValue, setInputValue] = useState('');
+function Dropdown({
+  list,
+  categorie,
+  isOpen,
+  setIsOpen,
+  tags,
+  setTags,
+  inputValue,
+  setInputValue,
+}) {
   return (
     <div className="dropdownContainer">
       {!isOpen[categorie] ? (
         <button
           type="button"
           className={`dropdownButton ${categorie}`}
-          onClick={() => setIsOpen(openCloseDropdowns(isOpen, categorie))}
+          onClick={() => {
+            setIsOpen(openCloseDropdowns(isOpen, categorie));
+            setInputValue('');
+          }}
         >
           <label htmlFor={categorie} className="dropdownLabel">
             {addUpperCase(categorie)}
@@ -67,6 +81,7 @@ function Dropdown({ list, categorie, isOpen, setIsOpen, tags, setTags }) {
                 onClick={() => {
                   setIsOpen({ ...isOpen, [categorie]: false });
                   setTags([...tags, [categorie, item]]);
+                  setInputValue('');
                 }}
               >
                 {item}
@@ -86,6 +101,8 @@ Dropdown.propTypes = {
   setIsOpen: propTypes.func.isRequired,
   setTags: propTypes.func.isRequired,
   tags: propTypes.arrayOf(propTypes.arrayOf(propTypes.string)).isRequired,
+  inputValue: propTypes.string.isRequired,
+  setInputValue: propTypes.func.isRequired,
 };
 
 export default Dropdown;

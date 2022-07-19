@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import propTypes from 'prop-types';
 import Dropdown from '../Dropdown/Dropdown';
 import { getCategoriesList } from '../../utils/dropdownsManager';
@@ -6,55 +6,92 @@ import { getCategoriesList } from '../../utils/dropdownsManager';
 /**
  *
  * @param {object} props
- * @param {array} props.recipesList - the list of recipes
+ * @param {array} props.filterRecipes - the filter list of recipes
  * @param {array} props.tags - the list of tags
  * @param {function} props.setTags - Function to set the list of tags
  * @return A dropdowns's group with a list of recipes and a button to open/close it
  */
-function Dropdowns({ recipesList, tags, setTags }) {
-  const [list, setList] = useState({
-    ingredients: getCategoriesList(recipesList, 'ingredients'),
-    appareils: getCategoriesList(recipesList, 'appliance'),
-    ustensiles: getCategoriesList(recipesList, 'ustensils'),
+function Dropdowns({ filterRecipes, tags, setTags }) {
+  console.log({ filterRecipes });
+  const [inputValue, setInputValue] = useState('');
+  const [tagsList, setTagsList] = useState({
+    ingredients: getCategoriesList(
+      filterRecipes,
+      'ingredients',
+      tags,
+      inputValue,
+    ),
+    appareils: getCategoriesList(filterRecipes, 'appliance', tags, inputValue),
+    ustensiles: getCategoriesList(filterRecipes, 'ustensils', tags, inputValue),
   });
+  console.log({ tagsList });
   const [isOpen, setIsOpen] = useState({
     ingredients: false,
     appareils: false,
     ustensiles: false,
   });
 
+  useEffect(() => {
+    setTagsList({
+      ingredients: getCategoriesList(
+        filterRecipes,
+        'ingredients',
+        tags,
+        inputValue,
+      ),
+      appareils: getCategoriesList(
+        filterRecipes,
+        'appliance',
+        tags,
+        inputValue,
+      ),
+      ustensiles: getCategoriesList(
+        filterRecipes,
+        'ustensils',
+        tags,
+        inputValue,
+      ),
+    });
+  }, [filterRecipes, tags, inputValue]);
+
   return (
     <section className="dropdowns">
       <Dropdown
-        list={list.ingredients}
+        list={tagsList.ingredients}
         categorie="ingredients"
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         tags={tags}
         setTags={setTags}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
       />
       <Dropdown
-        list={list.appareils}
+        list={tagsList.appareils}
         categorie="appareils"
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         tags={tags}
         setTags={setTags}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
       />
       <Dropdown
-        list={list.ustensiles}
+        list={tagsList.ustensiles}
         categorie="ustensiles"
         isOpen={isOpen}
         setIsOpen={setIsOpen}
         tags={tags}
         setTags={setTags}
+        inputValue={inputValue}
+        setInputValue={setInputValue}
       />
     </section>
   );
 }
 
 Dropdowns.propTypes = {
-  recipesList: propTypes.arrayOf(
+  filterRecipes: propTypes.arrayOf(
     propTypes.exact({
       id: propTypes.number.isRequired,
       name: propTypes.string.isRequired,

@@ -5,19 +5,24 @@ import Tags from './components/Tags/Tags';
 import Dropdowns from './components/Dropdowns/Dropdowns';
 import Cards from './components/Cards/Cards';
 import recipes from './data/recipes';
+import filterRecipes from './utils/dataManager';
 
 function App() {
-  const [recipesList, setRecipesList] = useState(recipes);
-  const [searchValueArray, setSearchValueArray] = useState([]);
+  const [recipesList] = useState(recipes);
+  const [searchValue, setsearchValue] = useState('');
   const [tags, setTags] = useState([]);
 
   return (
     <>
       <Header />
-      <Search setSearchValueArray={setSearchValueArray} />
+      <Search setsearchValue={setsearchValue} />
       <Tags tags={tags} setTags={setTags} />
-      <Dropdowns recipesList={recipesList} tags={tags} setTags={setTags} />
-      <Cards recipesList={recipesList} />
+      <Dropdowns
+        filterRecipes={filterRecipes(recipesList, searchValue, tags)}
+        tags={tags}
+        setTags={setTags}
+      />
+      <Cards filterRecipes={filterRecipes(recipesList, searchValue, tags)} />
     </>
   );
 }

@@ -7,10 +7,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 /**
  * It's a React component that renders a search input and a search icon
  * @param {object} props - props passed from parent component
- * @param {function} props.setSearchValueArray - Function to set the value of the search input
+ * @param {function} props.setsearchValue - Function to set the value of the search input
  * @return A search bar with a label and an icon.
  */
-function Search({ setSearchValueArray }) {
+function Search({ setsearchValue }) {
   return (
     <section className="search">
       <input
@@ -20,7 +20,7 @@ function Search({ setSearchValueArray }) {
         className="searchInput"
         placeholder="Rechercher une recette"
         onChange={(e) => {
-          setSearchValueArray(e.target.value.split(' '));
+          setsearchValue(e.target.value);
         }}
       />
       <label htmlFor="search" className="searchLabel">
@@ -31,7 +31,7 @@ function Search({ setSearchValueArray }) {
 }
 
 Search.propTypes = {
-  setSearchValueArray: propTypes.func.isRequired,
+  setsearchValue: propTypes.func.isRequired,
 };
 
 export default Search;
