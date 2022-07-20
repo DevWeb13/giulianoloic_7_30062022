@@ -72,7 +72,6 @@
       width: 13.875rem;
     }
     @include desktop {
-      border-radius: 0.3125rem 0.3125rem 0 0;
       width: 27.75rem;
     }
     @include large {
@@ -102,8 +101,8 @@
     }
     @include desktop {
       left: 0;
-      top: 67px;
-      border-radius: 0 0.3125rem;
+      top: 63px;
+      border-radius: 0.3125rem;
     }
     @include large {
       min-width: 41.625rem;
