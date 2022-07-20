@@ -12,9 +12,11 @@ recipe.
 function Cards({ filterRecipes }) {
   return (
     <section className="cardsContainer">
-      {filterRecipes.map((recipe) => (
-        <Card key={recipe.id} recipe={recipe} />
-      ))}
+      {filterRecipes.length > 0 ? (
+        filterRecipes.map((recipe) => <Card key={recipe.id} recipe={recipe} />)
+      ) : (
+        <h1>No recipes found</h1>
+      )}
     </section>
   );
 }
