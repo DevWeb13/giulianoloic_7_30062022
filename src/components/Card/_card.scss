@@ -4,6 +4,12 @@
   border-radius: 0.3125rem;
   overflow: hidden;
   max-width: 380px;
+  cursor: pointer;
+  &:hover {
+    transition: 0.2s ease-in-out;
+    transform: scale(1.02);
+    box-shadow: 0.5rem 0.5rem 1rem rgba(96, 96, 96, 0.1);
+  }
   @include tablette {
     width: 380px;
     max-height: 364px;

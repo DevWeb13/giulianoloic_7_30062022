@@ -1,10 +1,9 @@
 /**
- * [categorieListfilterBySearch description]
- *
- * @param   {array}  list    Category list
- * @param   {string}  search  Search input value
- *
- * @return  {array}         An array filter by search
+ * If the search is less than 3 characters, return the list, otherwise return the list filtered by the
+ * search.
+ * @param   {array}  list    - The list of items to filter.
+ * @param   {string}  search  The search string
+ * @return  {array}         A new array with the items that include the search string.
  */
 function categorieListfilterBySearch(list, search) {
   if (search.length < 3) {
@@ -14,8 +13,8 @@ function categorieListfilterBySearch(list, search) {
 }
 
 /**
- * [createCategorieList description]
- *
+ * It takes the data and the category as parameters, creates an empty array, loops through the data,
+ * and pushes the category to the array. It then returns the array with the unique values sorted
  * @param   {array}  data       - The list of recipes
  * @param   {string}  category  - The category of the dropdown
  * @return  {array}            - The list of the dropdown sorted alphabetically

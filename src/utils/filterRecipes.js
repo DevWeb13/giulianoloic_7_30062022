@@ -1,12 +1,5 @@
 /**
  * It filters the recipes by the tags
- * @param recipes - an array of recipes
- * @param tags - an array of arrays, each sub-array containing a tag type and a tag value.
- * @returns The filtered recipes
- */
-
-/**
- * It filters the recipes by the tags
  *
  * @param   {array}  recipes  - The list of recipes
  * @param   {array}  tags     - The list of tags
@@ -71,11 +64,11 @@ function filterBySearch(recipes, search) {
 /**
  * [filterRecipes description]
  *
- * @param   {array}  recipes  [recipes description]
- * @param   {string}  search   [search description]
- * @param   {array}  tags     [tags description]
+ * @param   {array}  recipes  - The list of recipes
+ * @param   {string}  search   - The search input value
+ * @param   {array}  tags     - The list of tags
  *
- * @return  {array}           [return description]
+ * @return  {array}             - The list of recipes that match the search criteria and the tags
  */
 export default function filterRecipes(recipes, search, tags) {
   const searchFilteredRecipes = filterBySearch(recipes, search);
