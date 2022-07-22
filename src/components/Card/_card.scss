@@ -3,7 +3,7 @@
   flex-direction: column;
   border-radius: 0.3125rem;
   overflow: hidden;
-  max-width: 380px;
+  max-width: 23.75rem;
   cursor: pointer;
   &:hover {
     transition: 0.2s ease-in-out;
@@ -11,10 +11,10 @@
     box-shadow: 0.5rem 0.5rem 1rem rgba(96, 96, 96, 0.1);
   }
   @include tablette {
-    width: 380px;
-    max-height: 364px;
-    height: 364px;
-    min-height: 364px;
+    width: 23.75rem;
+    max-height: 22.75rem;
+    height: 22.75rem;
+    min-height: 22.75rem;
   }
   .imgContainer {
     display: flex;
@@ -44,15 +44,19 @@
       @include tablette {
         flex-direction: row;
         justify-content: space-between;
+        max-height: 1.375rem;
       }
       .cardContentName {
         font-size: 1.125rem;
+        @include tablette {
+          flex: 1;
+        }
       }
       .cardContentTime {
         display: flex;
         align-items: center;
         column-gap: 0.4375rem;
-        font-size: 18px;
+        font-size: 1.125rem;
         font-weight: bold;
       }
     }
@@ -60,7 +64,7 @@
       display: flex;
       flex-direction: column;
       row-gap: 0.625rem;
-      font-size: 12px;
+      font-size: 0.75rem;
       @include tablette {
         flex-direction: row;
         justify-content: space-between;
@@ -75,10 +79,7 @@
         flex: 1;
 
         @include tablette {
-          overflow: hidden;
-          text-overflow: ellipsis;
-          max-height: 110px;
-          display: block;
+          @include line-clamp(8, 1rem);
         }
       }
     }
