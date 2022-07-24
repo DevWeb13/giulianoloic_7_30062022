@@ -45,9 +45,9 @@ function filterBySearch(recipes, search) {
     return (
       recipe.name.toLowerCase().includes(search) ||
       recipe.description.toLowerCase().includes(search) ||
-      recipe.ingredients.some((ingredient) =>
-        ingredient.ingredient.toLowerCase().includes(search),
-      )
+      recipe.ingredients.some((ingredient) => {
+        return ingredient.ingredient.toLowerCase().includes(search);
+      })
     );
   });
 }
