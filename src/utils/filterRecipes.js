@@ -32,32 +32,9 @@ function filterByTags(recipes, tags) {
   return filteredRecipes;
 }
 
-/* **************************** Version with array object methods ********************** */
-// /**
-//  * If the search term is less than 3 characters, return all recipes, otherwise return only the recipes
-//  * that match the search term
-//  * @param   {array}  recipes  - The list of recipes
-//  * @param   {string}  search   - The search input value
-//  * @return  {Array}           - The list of recipes that match the search criteria
-//  */
-// function filterBySearch(recipes, search) {
-//   const searchTerm = search.toLowerCase().trim();
-//   if (searchTerm.length < 3) return recipes;
-//   return recipes.filter((recipe) => {
-//     return (
-//       recipe.name.toLowerCase().includes(searchTerm) ||
-//       recipe.description.toLowerCase().includes(searchTerm) ||
-//       recipe.ingredients.some((ingredient) =>
-//         ingredient.ingredient.toLowerCase().includes(searchTerm),
-//       )
-//     );
-//   });
-// }
-
 /* **************************** Version with native loops ********************** */
 function filterBySearch(recipes, search) {
-  const searchTerm = search.toLowerCase().trim();
-  if (searchTerm.length < 3) return recipes;
+  if (search === '') return recipes;
   const filteredRecipes = [];
   console.log(recipes.length);
   for (let i = 0; i < recipes.length; i++) {
@@ -65,9 +42,9 @@ function filterBySearch(recipes, search) {
     for (let j = 0; j < recipe.ingredients.length; j++) {
       const ingredient = recipe.ingredients[j];
       if (
-        ingredient.ingredient.toLowerCase().includes(searchTerm) ||
-        recipe.name.toLowerCase().includes(searchTerm) ||
-        recipe.description.toLowerCase().includes(searchTerm)
+        ingredient.ingredient.toLowerCase().includes(search) ||
+        recipe.name.toLowerCase().includes(search) ||
+        recipe.description.toLowerCase().includes(search)
       ) {
         filteredRecipes.push(recipe);
         break;
