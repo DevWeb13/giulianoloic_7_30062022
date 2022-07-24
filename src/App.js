@@ -11,7 +11,6 @@ import filterRecipes from './utils/filterRecipes';
 function App() {
   const [searchValue, setsearchValue] = useState('');
   const [tags, setTags] = useState([]);
-  console.log({ hashTable });
 
   return (
     <>

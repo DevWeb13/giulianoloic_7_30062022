@@ -3,11 +3,9 @@ import data from '../data/recipes';
 const hashTable = {};
 
 /**
- * [extractFromString description]
- *
+ * It takes a string and an index, and adds the string to the hash table at the index
  * @param   {String}  text  [type description]
  * @param   {Number}  index  [data description]
- *
  * @return  {void}
  */
 function extractFromString(text, index) {
@@ -20,6 +18,13 @@ function extractFromString(text, index) {
   }
 }
 
+/**
+ * It takes an array, and for each entry in the array, it extracts the value at the given index
+ * @param   {array}  arr    - The array to extract from
+ * @param   {number}  index  - The index of the string to extract.
+ * @param   {string|null}  key    - The key to look for in the array. If not provided, the entire array is searched.
+ * @return  {void}
+ */
 function extractFromArray(arr, index, key) {
   for (const entry of arr) {
     if (key) {
@@ -31,11 +36,10 @@ function extractFromArray(arr, index, key) {
 
 function extractFromPhrasing(phrasing, index) {
   const arr = phrasing.split(' ');
-  console.log(arr);
-  extractFromArray(arr, index);
+  extractFromArray(arr, index, null);
 }
 
-for (let i = data.length - 1; i > 0; i--) {
+for (let i = data.length - 1; i >= 0; i--) {
   extractFromString(data[i].name, i);
   extractFromPhrasing(data[i].description, i);
   extractFromArray(data[i].ingredients, i, 'ingredient');

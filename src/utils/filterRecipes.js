@@ -40,34 +40,49 @@ function filterByTags(recipes, tags) {
 //  * @return  {Array}           - The list of recipes that match the search criteria
 //  */
 // function filterBySearch(recipes, search) {
-//   const searchTerm = search.toLowerCase().trim();
-//   if (searchTerm.length < 3) return recipes;
 //   return recipes.filter((recipe) => {
 //     return (
-//       recipe.name.toLowerCase().includes(searchTerm) ||
-//       recipe.description.toLowerCase().includes(searchTerm) ||
+//       recipe.name.toLowerCase().includes(search) ||
+//       recipe.description.toLowerCase().includes(search) ||
 //       recipe.ingredients.some((ingredient) =>
-//         ingredient.ingredient.toLowerCase().includes(searchTerm),
+//         ingredient.ingredient.toLowerCase().includes(search),
 //       )
 //     );
 //   });
 // }
 
+/**
+ * It takes a list of recipes, a search term, and a table of search terms to recipe ids, and returns a
+ * list of recipes that match the search term
+ * @param recipes - the array of recipes
+ * @param table - a hash table that maps a search term to an array of recipe ids
+ * @param search - the search string
+ * @returns An array of recipes that match the search.
+ */
+
+/**
+ * It takes a list of recipes, a search term, and a table of search terms to recipe ids, and returns a
+ * list of recipes that match the search term
+ * @param   {Array}  recipes  - The list of recipes
+ * @param   {object}  table    - The hash table that maps a search term to an array of recipe ids
+ * @param   {string}  search   - The search input value
+ *
+ * @return  {array}           - The list of recipes that match the search criteria
+ */
 function filterBySearch(recipes, table, search) {
-  const searchTerm = search.toLowerCase().trim();
-  if (searchTerm.length < 3) return recipes;
-  const goodRecipes = [];
-  if (table[searchTerm]) {
-    for (const id of table[searchTerm]) {
-      goodRecipes.push(recipes[id]);
-    }
+  if (search === '') return recipes;
+  const filteredRecipes = [];
+  if (!table[search]) {
+    return filteredRecipes;
   }
-  return goodRecipes;
+  for (const id of table[search]) {
+    filteredRecipes.push(recipes[id]);
+  }
+  return filteredRecipes;
 }
 
 /**
  * It filters recipes by search and tags
- *
  * @param   {array}  recipes  - The list of recipes
  * @param   {string}  search   - The search input value
  * @param   {array}  tags     - The list of tags
