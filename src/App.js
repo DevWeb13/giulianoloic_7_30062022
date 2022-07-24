@@ -5,12 +5,13 @@ import Tags from './components/Tags/Tags';
 import Dropdowns from './components/Dropdowns/Dropdowns';
 import Cards from './components/Cards/Cards';
 import recipes from './data/recipes';
+import hashTable from './utils/createHashTable';
 import filterRecipes from './utils/filterRecipes';
 
 function App() {
-  const [recipesList] = useState(recipes);
   const [searchValue, setsearchValue] = useState('');
   const [tags, setTags] = useState([]);
+  console.log({ hashTable });
 
   return (
     <>
@@ -18,11 +19,13 @@ function App() {
       <Search setsearchValue={setsearchValue} />
       <Tags tags={tags} setTags={setTags} />
       <Dropdowns
-        filterRecipes={filterRecipes(recipesList, searchValue, tags)}
+        filterRecipes={filterRecipes(recipes, hashTable, searchValue, tags)}
         tags={tags}
         setTags={setTags}
       />
-      <Cards filterRecipes={filterRecipes(recipesList, searchValue, tags)} />
+      <Cards
+        filterRecipes={filterRecipes(recipes, hashTable, searchValue, tags)}
+      />
     </>
   );
 }

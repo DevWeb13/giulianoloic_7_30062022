@@ -32,25 +32,37 @@ function filterByTags(recipes, tags) {
   return filteredRecipes;
 }
 
-/**
- * If the search term is less than 3 characters, return all recipes, otherwise return only the recipes
- * that match the search term
- * @param   {array}  recipes  - The list of recipes
- * @param   {string}  search   - The search input value
- * @return  {Array}           - The list of recipes that match the search criteria
- */
-function filterBySearch(recipes, search) {
+// /**
+//  * If the search term is less than 3 characters, return all recipes, otherwise return only the recipes
+//  * that match the search term
+//  * @param   {array}  recipes  - The list of recipes
+//  * @param   {string}  search   - The search input value
+//  * @return  {Array}           - The list of recipes that match the search criteria
+//  */
+// function filterBySearch(recipes, search) {
+//   const searchTerm = search.toLowerCase().trim();
+//   if (searchTerm.length < 3) return recipes;
+//   return recipes.filter((recipe) => {
+//     return (
+//       recipe.name.toLowerCase().includes(searchTerm) ||
+//       recipe.description.toLowerCase().includes(searchTerm) ||
+//       recipe.ingredients.some((ingredient) =>
+//         ingredient.ingredient.toLowerCase().includes(searchTerm),
+//       )
+//     );
+//   });
+// }
+
+function filterBySearch(recipes, table, search) {
   const searchTerm = search.toLowerCase().trim();
   if (searchTerm.length < 3) return recipes;
-  return recipes.filter((recipe) => {
-    return (
-      recipe.name.toLowerCase().includes(searchTerm) ||
-      recipe.description.toLowerCase().includes(searchTerm) ||
-      recipe.ingredients.some((ingredient) =>
-        ingredient.ingredient.toLowerCase().includes(searchTerm),
-      )
-    );
-  });
+  const goodRecipes = [];
+  if (table[searchTerm]) {
+    for (const id of table[searchTerm]) {
+      goodRecipes.push(recipes[id]);
+    }
+  }
+  return goodRecipes;
 }
 
 /**
@@ -61,7 +73,7 @@ function filterBySearch(recipes, search) {
  * @param   {array}  tags     - The list of tags
  * @return  {array}             - The list of recipes that match the search criteria and the tags
  */
-export default function filterRecipes(recipes, search, tags) {
-  const searchFilteredRecipes = filterBySearch(recipes, search);
+export default function filterRecipes(recipes, table, search, tags) {
+  const searchFilteredRecipes = filterBySearch(recipes, table, search);
   return filterByTags(searchFilteredRecipes, tags);
 }
