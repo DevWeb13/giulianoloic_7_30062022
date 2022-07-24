@@ -40,14 +40,13 @@ function filterByTags(recipes, tags) {
  * @return  {Array}           - The list of recipes that match the search criteria
  */
 function filterBySearch(recipes, search) {
-  const searchTerm = search.toLowerCase().trim();
-  if (searchTerm.length < 3) return recipes;
+  if (search === '') return recipes;
   return recipes.filter((recipe) => {
     return (
-      recipe.name.toLowerCase().includes(searchTerm) ||
-      recipe.description.toLowerCase().includes(searchTerm) ||
+      recipe.name.toLowerCase().includes(search) ||
+      recipe.description.toLowerCase().includes(search) ||
       recipe.ingredients.some((ingredient) =>
-        ingredient.ingredient.toLowerCase().includes(searchTerm),
+        ingredient.ingredient.toLowerCase().includes(search),
       )
     );
   });

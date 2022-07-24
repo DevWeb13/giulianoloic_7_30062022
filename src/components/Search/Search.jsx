@@ -19,7 +19,11 @@ function Search({ setsearchValue }) {
         className="searchInput"
         placeholder="Rechercher une recette"
         onChange={(e) => {
-          setsearchValue(e.target.value);
+          if (e.target.value.toLowerCase().trim().length > 2) {
+            setsearchValue(e.target.value.toLowerCase().trim());
+          } else {
+            setsearchValue('');
+          }
         }}
       />
       <label htmlFor="search" className="searchLabel">
