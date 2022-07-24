@@ -34,8 +34,18 @@ function extractFromArray(arr, index, key) {
   }
 }
 
+/**
+ * It takes a string, deletes all special characters, splits the string into an array, and then calls
+ * the `extractFromArray` function.
+ * @param   {string}  phrasing  - The text to be parsed
+ * @param   {number}  index     - The index of the word in the array
+ *
+ * @return  {void}
+ */
 function extractFromPhrasing(phrasing, index) {
-  const arr = phrasing.split(' ');
+  // delete special characters
+  const text = phrasing.replace(/[^a-zA-Z0-9\s]/g, '');
+  const arr = text.split(' ');
   extractFromArray(arr, index, null);
 }
 

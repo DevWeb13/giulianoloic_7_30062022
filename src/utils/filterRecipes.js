@@ -32,34 +32,6 @@ function filterByTags(recipes, tags) {
   return filteredRecipes;
 }
 
-// /**
-//  * If the search term is less than 3 characters, return all recipes, otherwise return only the recipes
-//  * that match the search term
-//  * @param   {array}  recipes  - The list of recipes
-//  * @param   {string}  search   - The search input value
-//  * @return  {Array}           - The list of recipes that match the search criteria
-//  */
-// function filterBySearch(recipes, search) {
-//   return recipes.filter((recipe) => {
-//     return (
-//       recipe.name.toLowerCase().includes(search) ||
-//       recipe.description.toLowerCase().includes(search) ||
-//       recipe.ingredients.some((ingredient) =>
-//         ingredient.ingredient.toLowerCase().includes(search),
-//       )
-//     );
-//   });
-// }
-
-/**
- * It takes a list of recipes, a search term, and a table of search terms to recipe ids, and returns a
- * list of recipes that match the search term
- * @param recipes - the array of recipes
- * @param table - a hash table that maps a search term to an array of recipe ids
- * @param search - the search string
- * @returns An array of recipes that match the search.
- */
-
 /**
  * It takes a list of recipes, a search term, and a table of search terms to recipe ids, and returns a
  * list of recipes that match the search term
