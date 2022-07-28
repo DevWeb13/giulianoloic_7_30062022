@@ -33,6 +33,15 @@ function filterByTags(recipes, tags) {
 }
 
 /* **************************** Version with native loops ********************** */
+/**
+ * It loops through each recipe, and then loops through each ingredient in that recipe. If the
+ * ingredient name, recipe name, or recipe description includes the search term, then the recipe is
+ * added to the filteredRecipes array
+ * @param   {array}  recipes  - The list of recipes
+ * @param   {string}  search   - The search term
+ *
+ * @return  {array}           - The list of recipes that match the search term
+ */
 function filterBySearch(recipes, search) {
   if (search === '') return recipes;
   const filteredRecipes = [];
