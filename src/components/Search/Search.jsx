@@ -5,9 +5,10 @@ import { faSearch } from '@fortawesome/free-solid-svg-icons';
 
 /**
  * It's a React component that renders a search input and a search icon
+ * @component
  * @param {object} props - props passed from parent component
  * @param {function} props.setsearchValue - Function to set the value of the search input
- * @return A search bar with a label and an icon.
+ * @return {React.ReactElement} A search bar with a label and an icon.
  */
 function Search({ setsearchValue }) {
   return (

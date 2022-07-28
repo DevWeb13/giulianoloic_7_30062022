@@ -5,7 +5,8 @@ import { faAngleDown, faAngleUp } from '@fortawesome/free-solid-svg-icons';
 import { openCloseDropdowns, addUpperCase } from '../../utils/dropdownsManager';
 
 /**
- *
+ * A function that returns a dropdown with a list of items and a button to open/close it.
+ * @component
  * @param {object} props
  * @param {array} props.list - the list of items
  * @param {string} props.categorie - the name of the category
@@ -16,7 +17,7 @@ import { openCloseDropdowns, addUpperCase } from '../../utils/dropdownsManager';
  * @param {string} props.inputValue - the value of the input
  * @param {function} props.setInputValue - Function to set the value of the input
  * @param {function} props.setTags - Function to set the list of tags
- * @return A dropdown with a list of items and a button to open/close it
+ * @return {React.ReactElement} A dropdown with a list of items and a button to open/close it
  */
 function Dropdown({
   list,

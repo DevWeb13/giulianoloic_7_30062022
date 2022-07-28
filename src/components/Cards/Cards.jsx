@@ -3,11 +3,10 @@ import propTypes from 'prop-types';
 import Card from '../Card/Card';
 
 /**
- * 
+ * @component
  * @param {object} props - the props of the component
  * @param {array} props.filterRecipes - the filter list of recipes
- * @returns A React component that takes in an array of recipes and maps over them to create a card for each
-recipe.
+ * @return {React.ReactElement} - the component Cards
  */
 function Cards({ filterRecipes }) {
   return (

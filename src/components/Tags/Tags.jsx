@@ -3,11 +3,12 @@ import propTypes from 'prop-types';
 import deleteTag from '../../utils/deleteTags';
 
 /**
- *
+ * It returns a div that contains a div for each tag in the tags array
+ * @component
  * @param {object} props - the props of the component
  * @param {array} props.tags - the list of tags
  * @param {function} props.setTags - Function to set the list of tags
- * @return A list of tags
+ * @return {React.ReactElement} - A list of tags
  */
 function Tags({ tags, setTags }) {
   return (

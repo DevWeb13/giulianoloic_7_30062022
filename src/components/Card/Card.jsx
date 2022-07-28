@@ -4,6 +4,14 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faClock } from '@fortawesome/free-regular-svg-icons';
 import displayIngredients from '../../utils/displayIngredients';
 
+/**
+ * The Card component is a functional component that takes in a recipe object as a prop and returns a
+ * card with the recipe's name, time, ingredients, and description
+ * @component
+ * @param {object} props
+ * @param {object} props.recipe - the recipe object
+ * @return {React.ReactElement} - the component Card
+ */
 function Card({ recipe }) {
   return (
     <article className="card">

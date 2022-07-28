@@ -1,6 +1,7 @@
 /**
  * It takes an ingredient object and returns a string that displays the ingredient's name, quantity,
  * and unit
+ * @module displayIngredient
  * @param {object} ingredient - the ingredient object
  * @return {string} - the ingredient name, quantity, and unit.
  */
