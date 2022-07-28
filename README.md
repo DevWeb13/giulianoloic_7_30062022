@@ -2,7 +2,7 @@
 
 # (Les petits plats)
 
-> Cooking recipe site with search features.
+## Cooking recipe site with search features.
 
 ## Project Realized By Giuliano Loic
 
