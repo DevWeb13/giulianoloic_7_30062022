@@ -23,18 +23,18 @@ function Cards({ filterRecipes }) {
 Cards.propTypes = {
   filterRecipes: propTypes.arrayOf(
     propTypes.exact({
-      id: propTypes.number.isRequired,
-      name: propTypes.string.isRequired,
-      servings: propTypes.number.isRequired,
+      id: propTypes.number,
+      name: propTypes.string,
+      servings: propTypes.number,
       ingredients: propTypes.arrayOf(
         propTypes.objectOf(
           propTypes.oneOfType([propTypes.number, propTypes.string]),
         ),
-      ).isRequired,
-      time: propTypes.number.isRequired,
-      description: propTypes.string.isRequired,
-      appliance: propTypes.string.isRequired,
-      ustensils: propTypes.arrayOf(propTypes.string).isRequired,
+      ),
+      time: propTypes.number,
+      description: propTypes.string,
+      appliance: propTypes.string,
+      ustensils: propTypes.arrayOf(propTypes.string),
     }),
   ).isRequired,
 };
