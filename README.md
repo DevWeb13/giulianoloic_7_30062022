@@ -2,6 +2,8 @@
 
 # (Les petits plats)
 
+# Développez un algorithme de recherche en JavaScript
+
 ## Cooking recipe site with search features.
 
 ## Project Realized By Giuliano Loic
