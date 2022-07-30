@@ -43,8 +43,11 @@ function extractFromArray(arr, index, key) {
  * @return  {void}
  */
 function extractFromPhrasing(phrasing, index) {
-  // delete special characters
-  const text = phrasing.replace(/[^a-zA-Z0-9\s]/g, '');
+  // delete special characters but not accent
+  const text = phrasing.replace(
+    /[^a-zA-Z0-9éèàùêëîïôöüûçÿäâÊËÏÔÖÛÜÇŸÄÂ]/g,
+    ' ',
+  );
   const arr = text.split(' ');
   extractFromArray(arr, index, null);
 }
