@@ -14,7 +14,10 @@ function Cards({ filterRecipes }) {
       {filterRecipes.length > 0 ? (
         filterRecipes.map((recipe) => <Card key={recipe.id} recipe={recipe} />)
       ) : (
-        <h1>No recipes found</h1>
+        <h1>
+          Aucune recette ne correspond à votre critère… vous pouvez chercher «
+          tarte aux pommes », « poisson », etc.
+        </h1>
       )}
     </section>
   );

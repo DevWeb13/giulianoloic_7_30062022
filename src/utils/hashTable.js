@@ -1,4 +1,4 @@
-import data from '../data/recipes';
+import recipes from '../data/recipes';
 
 const hashTable = {};
 
@@ -52,10 +52,10 @@ function extractFromPhrasing(phrasing, index) {
   extractFromArray(arr, index, null);
 }
 
-for (let i = data.length - 1; i >= 0; i--) {
-  extractFromString(data[i].name, i);
-  extractFromPhrasing(data[i].description, i);
-  extractFromArray(data[i].ingredients, i, 'ingredient');
+for (let i = recipes.length - 1; i >= 0; i--) {
+  extractFromString(recipes[i].name, i);
+  extractFromPhrasing(recipes[i].description, i);
+  extractFromArray(recipes[i].ingredients, i, 'ingredient');
 }
 
 export default hashTable;
