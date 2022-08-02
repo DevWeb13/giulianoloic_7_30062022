@@ -31,7 +31,7 @@ function Card({ recipe }) {
             {recipe.ingredients.map((ingredient, index) => (
               // eslint-disable-next-line react/no-array-index-key
               <li key={`${ingredient} ${index}`}>
-                <span className="cardContentIngredient">{`${ingredient.ingredient}: `}</span>
+                <span className="cardContentIngredient">{`${ingredient.ingredient}`}</span>
                 {displayIngredients(ingredient)}
               </li>
             ))}

@@ -4,8 +4,8 @@ const hashTable = {};
 
 /**
  * It takes a string and an index, and adds the string to the hash table at the index
- * @param   {String}  text  [type description]
- * @param   {Number}  index  [data description]
+ * @param   {String}  text  - The string to add to the hash table
+ * @param   {Number}  index  - The index of the string in the hash table
  * @return  {void}
  */
 function extractFromString(text, index) {

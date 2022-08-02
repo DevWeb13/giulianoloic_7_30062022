@@ -8,15 +8,15 @@
 export default function displayIngredients(ingredient) {
   if (ingredient.quantity) {
     if (ingredient.unit) {
-      return `${ingredient.quantity}${ingredient.unit}`;
+      return `: ${ingredient.quantity}${ingredient.unit}`;
     }
-    return `${ingredient.quantity}`;
+    return `: ${ingredient.quantity}`;
   }
   if (ingredient.quantite) {
     if (ingredient.unit) {
-      return `${ingredient.quantite}${ingredient.unit}`;
+      return `: ${ingredient.quantite}${ingredient.unit}`;
     }
-    return `${ingredient.quantite}`;
+    return `: ${ingredient.quantite}`;
   }
   return '';
 }
